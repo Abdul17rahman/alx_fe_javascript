@@ -4,16 +4,16 @@ const quoteDisplay = document.getElementById("quoteDisplay");
 
 const quotes = [
   {
-    category: "Fun",
     text: "Kasbar is not recognised",
+    category: "Fun",
   },
   {
-    category: "Sports",
     text: "Mo Salah is Ugandan",
+    category: "Sports",
   },
   {
-    category: "Science",
     text: "Math is a good language",
+    category: "Science",
   },
 ];
 
@@ -21,8 +21,8 @@ function showRandomQuote() {
   const rand = Math.floor(Math.random() * quotes.length);
   const randQuote = quotes[rand];
   const q = document.createElement("p");
+  quoteDisplay.innerHTML = "";
   q.textContent = randQuote.text;
-  console.log(q);
   quoteDisplay.appendChild(q);
 }
 
