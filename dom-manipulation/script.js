@@ -1,6 +1,7 @@
 const inputText = document.getElementById("newQuoteText");
 const inputCat = document.getElementById("newQuoteCategory");
 const quoteDisplay = document.getElementById("quoteDisplay");
+const newQuote = document.getElementById("newQuote");
 
 const quotes = [
   {
@@ -25,6 +26,8 @@ function showRandomQuote() {
   q.textContent = randQuote.text;
   quoteDisplay.appendChild(q);
 }
+
+newQuote.addEventListener("click", showRandomQuote);
 
 function createAddQuoteForm() {
   quotes.push({
