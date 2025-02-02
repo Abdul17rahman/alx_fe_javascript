@@ -70,7 +70,7 @@ function importFromJsonFile(event) {
 
 function populateCategories() {
   const uniqueCategories = new Set();
-  quotes.forEach((q) => {
+  quotes.map((q) => {
     if (!uniqueCategories.has(q.category)) {
       uniqueCategories.add(q.category);
 
