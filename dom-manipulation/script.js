@@ -83,11 +83,11 @@ function populateCategories() {
 }
 
 function filterQuotes() {
-  const category = optionsFilter.value;
+  const selectedCategory = optionsFilter.value;
 
-  localStorage.setItem("lastSelectedCategory", category);
+  localStorage.setItem("lastSelectedCategory", selectedCategory);
 
-  const filteredQuotes = quotes.filter((q) => q.category === category);
+  const filteredQuotes = quotes.filter((q) => q.category === selectedCategory);
 
   quoteDisplay.innerHTML = "";
   filteredQuotes.forEach((quote) => {
