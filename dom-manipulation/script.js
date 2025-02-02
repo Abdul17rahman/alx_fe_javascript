@@ -140,5 +140,6 @@ async function fetchFakeData() {
 async function syncQuotes() {
   setInterval(async function () {
     await fetchQuotesFromServer();
+    alert("Quotes synced with server!");
   }, 5000);
 }
