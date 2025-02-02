@@ -52,7 +52,6 @@ function createAddQuoteForm() {
     category: inputCat.value,
   });
   localStorage.setItem("quotes", JSON.stringify(fetchedQuotes));
-  postQuotes(fetchedQuotes);
   inputText.value = "";
   inputCat.value = "";
   // populateCategories();
@@ -136,4 +135,10 @@ async function postQuotes(data) {
 async function fetchFakeData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await res.json();
+}
+
+async function syncQuotes() {
+  setInterval(async function () {
+    await fetchQuotesFromServer();
+  }, 5000);
 }
