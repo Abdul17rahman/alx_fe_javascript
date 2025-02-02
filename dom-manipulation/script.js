@@ -54,6 +54,7 @@ function createAddQuoteForm() {
   localStorage.setItem("quotes", JSON.stringify(fetchedQuotes));
   inputText.value = "";
   inputCat.value = "";
+  // populateCategories();
 }
 
 // Import quotes from a json file.
@@ -106,7 +107,17 @@ function restoreLastSelectedCategory() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", async function () {
   populateCategories();
   restoreLastSelectedCategory();
+  await fetchQuotesFromServer();
 });
+
+const serverURL =
+  "https://my-json-server.typicode.com/Abdul17rahman/fake/quotes";
+
+async function fetchQuotesFromServer() {
+  const res = await fetch(serverURL);
+  const data = await res.json();
+  console.log(data);
+}
