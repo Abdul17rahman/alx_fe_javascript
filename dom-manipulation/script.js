@@ -52,6 +52,7 @@ function createAddQuoteForm() {
     category: inputCat.value,
   });
   localStorage.setItem("quotes", JSON.stringify(fetchedQuotes));
+  postQuotes(fetchedQuotes);
   inputText.value = "";
   inputCat.value = "";
   // populateCategories();
@@ -113,11 +114,26 @@ window.addEventListener("DOMContentLoaded", async function () {
   await fetchQuotesFromServer();
 });
 
-const serverURL =
-  "https://my-json-server.typicode.com/Abdul17rahman/fake/quotes";
+const serverURL = "https://my-json-server.typicode.com/Abdul17rahman/fake/db";
 
 async function fetchQuotesFromServer() {
   const res = await fetch(serverURL);
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
+}
+
+async function postQuotes(data) {
+  const res = await fetch(serverURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const results = await res.json();
+}
+
+async function fetchFakeData() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
 }
